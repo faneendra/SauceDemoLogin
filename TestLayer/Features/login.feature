@@ -1,27 +1,25 @@
 Feature: Login Functionality
 
-  Scenario: Successful Login
-    Given I am on the login page
-    When I enter valid credentials
-    And I click the login button
-    Then I should be redirected to the products page
+  Scenario: Valid Login
+    Given the user is on the login page
+    When the user enters valid username 'standard_user' and password 'secret_sauce'
+    And the user clicks on login button
+    Then the user should be redirected to the products page
 
   Scenario: Invalid Login
-    Given I am on the login page
-    When I enter invalid credentials
-    And I click the login button
-    Then I should see an error message about invalid credentials
+    Given the user is on the login page
+    When the user enters invalid username 'invalid_user' and any password
+    And the user clicks on login button
+    Then an error message should be displayed
 
   Scenario: Empty Username
-    Given I am on the login page
-    When I leave the username field empty
-    And I enter a valid password
-    And I click the login button
-    Then I should see an error message about the necessity to enter a username
+    Given the user is on the login page
+    When the user leaves the username empty and enters a valid password
+    And the user clicks on login button
+    Then an error message should be displayed
 
   Scenario: Empty Password
-    Given I am on the login page
-    When I enter a valid username
-    And I leave the password field empty
-    And I click the login button
-    Then I should see an error message about the necessity to enter a password
+    Given the user is on the login page
+    When the user enters a valid username and leaves the password empty
+    And the user clicks on login button
+    Then an error message should be displayed
